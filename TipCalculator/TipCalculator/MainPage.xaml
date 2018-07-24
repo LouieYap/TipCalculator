@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TipCalculator"
+             xmlns:customslider="clr-namespace:TipCalculator.CustomSlider"
+             x:Class="TipCalculator.MainPage">
+    <Grid ColumnSpacing="1" RowSpacing="1" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="dollar.jpg" Margin="0,15,0,0"  Grid.ColumnSpan="2"/>
+        <Label Text="TIP CALCULATOR" FontSize = "20" TextColor="#66CC33" FontAttributes="Bold" HorizontalTextAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0"></Label>
+        <Label Text="Bill" Margin="30,0,0,0" FontSize="20" Grid.Row="2" Grid.Column="0"></Label>
+        <Entry Placeholder="Enter Amount" x:Name="Amount"  TextChanged="OnAmountChanged" Margin="0,0,30,0" FontSize="20" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"></Entry>
+        <Label Text="Tip" Margin="30,0,0,0" FontSize="20" Grid.Row="3" Grid.Column="0"></Label>
+        <Label Text="0.00" x:Name="TipAmount" FontSize="20" Grid.Row="3" Grid.Column="1"></Label>
+        <Label Text="Total" Margin="30,0,0,0" FontSize="20" Grid.Row="4" Grid.Column="0"></Label>
+        <Label Text="0.00" x:Name="TotalAmount" FontSize="20" Grid.Row="4" Grid.Column="1"></Label>
+        <Label Text="Tip Percentage" Margin="30,0,0,0" VerticalOptions="End" FontSize="20" Grid.Row="5" Grid.Column="0"></Label>
+        <Label Text="{Binding Value, StringFormat='{0:F0}%'}" BindingContext="{x:Reference tipSlider}" Margin="130,0,0,0" VerticalOptions="End" FontSize="20" Grid.Row="5" Grid.Column="1"></Label>
+        <Slider x:Name="tipSlider" Margin="30,0,30,0" Maximum="100" Minimum="0" Value="15" ValueChanged="OnTipSliderChange" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button Text="15%" Margin="30,0,0,0" Clicked="OnPercentClicked"  Grid.Row="7" Grid.Column="0"/>
+        <Button Text="20%" Margin="0,0,30,0" Clicked="OnPercentClicked"  Grid.Row="7" Grid.Column="1"/>
+        <Button Text="Round Down" Clicked="OnRoundOffClicked" Margin="30,0,0,0"  Grid.Row="8" Grid.Column="0"></Button>
+        <Button Text="Round Up"  Clicked="OnRoundOffClicked" Margin="0,0,30,0"  Grid.Row="8" Grid.Column="1"></Button>
+
+        <Label Text="Developed by Louie Hans Yap" TextColor="#000000" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="End" Grid.ColumnSpan="2" Grid.Row="9" Grid.Column="0"></Label>
+    </Grid>
+
+
+</ContentPage>
